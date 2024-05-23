@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Project;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('welcome', ['projects' => Project::orderByDesc('id')->take(3)->get()]);
 }); //http://localhost:8000/
+
+Route::get('projects', function () {
+    return view('guests.projects.index', ['projects' => Project::orderByDesc('id')->paginate(8)]);
+})->name('guests.projects.index');
+
+Route::get('projects/{project}', function (Project $project) {
+    return view('guests.projects.show', compact('project'));
+})->name('guests.projects.show');
+
 
 
 Route::middleware(['auth', 'verified'])
