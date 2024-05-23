@@ -52,7 +52,10 @@
                             <i class="fas fa-pencil-alt fa-sm fa-fw"></i>
                         </a>
 
-                        /DELETE
+
+                        @include('admin.projects.partials.delete-modal')
+
+
                     </td>
                 </tr>
 
