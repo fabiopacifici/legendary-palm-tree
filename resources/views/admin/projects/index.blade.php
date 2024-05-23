@@ -10,6 +10,9 @@
 </header>
 
 <div class="container mt-5">
+
+    @include('partials.session-message')
+
     <div class="table-responsive-md">
         <table class="table table-striped table-hover table-borderless table-secondary align-middle">
             <thead class="table-dark">
