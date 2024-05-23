@@ -31,11 +31,22 @@
                 @forelse ($projects as $project )
                 <tr class="table-dark">
                     <td scope="row">{{$project->id}}</td>
-                    <td><img loading="lazy" width="120" src="{{$project->cover_image}}" alt=""> </td>
+                    <td>
+                        @if (Str::startsWith($project->cover_image, 'https://'))
+                        <img loading="lazy" width="120" src="{{$project->cover_image}}" alt="">
+                        @else
+                        <img loading="lazy" width="120" src="{{asset('storage/' . $project->cover_image)}}" alt="">
+                        @endif
+                    </td>
                     <td>{{$project->name}}</td>
                     <td><a href="{{$project->project_url}}" target="_blank">Preview</a></td>
                     <td><a href="{{$project->source_code_url}}" target="_blank">Source code</a></td>
-                    <td>VIEW/EDIT/DELETE</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{route('admin.projects.show', $project)}}">
+                            <i class="fas fa-eye fa-sm fa-fw"></i>
+                        </a>
+                        /EDIT/DELETE
+                    </td>
                 </tr>
 
                 @empty

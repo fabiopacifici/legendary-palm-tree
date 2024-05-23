@@ -15,6 +15,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous' referrerpolicy='no-referrer' />
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
@@ -48,6 +49,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('admin.projects.index') }}">{{ __('Projects') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.projects.create') }}">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                {{ __('New') }}
+                            </a>
+                        </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
