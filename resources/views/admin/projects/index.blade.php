@@ -45,7 +45,11 @@
                         <a class="btn btn-primary" href="{{route('admin.projects.show', $project)}}">
                             <i class="fas fa-eye fa-sm fa-fw"></i>
                         </a>
-                        /EDIT/DELETE
+                        <a class="btn btn-secondary" href="{{route('admin.projects.edit', $project)}}">
+                            <i class="fas fa-pencil-alt fa-sm fa-fw"></i>
+                        </a>
+
+                        /DELETE
                     </td>
                 </tr>
 
